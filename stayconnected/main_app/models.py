@@ -1,12 +1,15 @@
+# Jake was here
 from django.db import models
 from datetime import date
 
 # Create your models here.
 
+
 class Project(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField(max_length=250)
     link = models.CharField(max_length=200)
+
 
 class Job(models.Model):
     company_name = models.CharField(max_length=50)
