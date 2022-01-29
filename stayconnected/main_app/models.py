@@ -1,4 +1,6 @@
+
 # Jake was here (branch name John)
+
 from django.db import models
 from datetime import date
 
@@ -25,3 +27,4 @@ class Job(models.Model):
     def __str__(self):
 
         return f"{self.get_link_display()} on {self.date}"
+
