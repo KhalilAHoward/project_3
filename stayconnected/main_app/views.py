@@ -21,6 +21,14 @@ def about(request):
 # def job_index(request):
 #     return render(request, 'jobs/job_index.html')  
 
+# class ProfileCreate(CreateView):
+#     model = Profile
+#     fields = '__all__' <----profile function for the model we havnt included yet
+
+# def profile_index(request):
+#     profiles = Profile.objects.filter(user=request.user)
+#     return render(request, 'profile/index.html', {'profiles': profiles}) <--- one more possible profile function
+
 class ProjectList(ListView):
     model = Project
 
