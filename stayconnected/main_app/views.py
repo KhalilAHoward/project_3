@@ -26,8 +26,8 @@ class ProfileCreate(CreateView):
     fields = '__all__' 
 
 def profile_index(request):
-    profiles = Profile.objects.filter(user=request.user)
-    return render(request, 'profile/index.html', {'profiles': profiles}) 
+    # profiles = Profile.objects.filter(user=request.user)
+    return render(request, 'profile/detail.html') 
 
 class ProjectList(ListView):
     model = Project
