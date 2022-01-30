@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from .models import Project, Job, Profile
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
 
 
 # Add the following import
@@ -29,9 +30,27 @@ def about(request):
 #         new_project.save()
 #     return redirect('detail', profile_id=profile_id)
 
+def signup(request):
+    error_message = ''
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('index')
+        else:
+            error_message = 'Invalid sign up - try again'
+    form = UserCreationForm()
+    context = {'form': form, 'error_message': error_message}
+    return render(request, 'registration/signup.html', context)
+
 class ProfileCreate(CreateView):
     model = Profile
-    fields = '__all__' 
+    fields = ['name', 'description', 'link'] 
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 def profile_index(request):
     # profiles = Profile.objects.filter(user=request.user)
