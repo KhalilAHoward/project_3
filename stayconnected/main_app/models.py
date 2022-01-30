@@ -28,3 +28,7 @@ class Job(models.Model):
 
         return f"{self.get_link_display()} on {self.date}"
 
+class Profile(models.Model):
+    name = models.CharField(max_length=50)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    job = models.ForeignKey(Job, on_delete=models.CASCADE)
