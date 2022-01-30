@@ -21,6 +21,14 @@ def about(request):
 # def job_index(request):
 #     return render(request, 'jobs/job_index.html')  
 
+# def add_project(request, profile_id):
+#     form = ProjectForm(request.POST)
+#     if form.is_valid():
+#         new_project = form.save(commit=false)
+#         new_project.profile_id = profile_id
+#         new_project.save()
+#     return redirect('detail', profile_id=profile_id)
+
 class ProfileCreate(CreateView):
     model = Profile
     fields = '__all__' 

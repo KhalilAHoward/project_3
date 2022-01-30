@@ -15,19 +15,18 @@
   <header class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
-        <div class="left-brand-logo-container">
-          <a href="/" class="left-brand-logo">&nbsp;&nbsp;StayConnected</a>
-        </div>
-        <div class="nav-link"><a href="/about">About</a></div>
-        <div class="nav-link nav-dynamic-link">
-          <div><a href="{% url 'job_create' %}">Add a Job Post</a></div>
-          <div><a href="{% url 'job_index' %}">View All Job Posts</a></div>
-        </div>
-        <div class="nav-link nav-dynamic-link"></div>
-        <div><a href="{% url 'project_create' %}">Add a Project</a></div>
-        <div><a href="{% url 'project_index' %}">View All Projects</a></div>
-      </div>
-      <div class="nav-link profile-link"><a href="{% url 'index' %}">View My Profile</a></div>
+        <ul>
+          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Stay Connected</a></li>
+        </ul>
+        <ul class="right">
+          <li><a href="/about">About</a></li>
+          <li><a href="{% url 'job_create' %}">Add a Job Post</a></li>
+          <li><a href="{% url 'job_index' %}">View All Job Posts</a></li>
+          <li><a href="{% url 'project_create' %}">Add a Project</a></li>
+		  <li><a href="{% url 'project_index' %}">View All Projects</a></li>
+          <li><a href="{% url 'index' %}">View My Profile</a></li>
+        </ul>
+
       </div>
     </nav>
   </header>
