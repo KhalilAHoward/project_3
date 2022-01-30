@@ -13,7 +13,7 @@ def home(request):
   return HttpResponse('<h1>Hello /ᐠ｡‸｡ᐟ\ﾉ</h1>')
 
 def about(request):
-    return render(request, 'home.html')
+    return render(request, 'about.html')
 # changed the below functions to class based views but am not deleting incase we change it back
 # def project_index(request):
 #     return render(request, 'projects/project_index.html')
