@@ -21,7 +21,7 @@ urlpatterns = [
     path('jobs/<int:pk>/delete/', views.JobDelete.as_view(), name='job_delete'), #this will be the delete button on the details page of jobs to delete your job posts
     path('projects/<int:pk>/update/', views.ProjectUpdate.as_view(), name='project_update'), #this will be the edit button on the details page of the project to edit your projects
     path('projects/<int:pk>/delete/', views.ProjectDelete.as_view(), name='project_delete'), #this will be the delete button on details page of the project to delete your own projects
-
+    path('accounts/signup/', views.signup, name='signup'),
 ]
 # commented out paths are because we dont have a model for it yet.  just creating basic paths for when we include a user profile -Karissa
 # charles 
