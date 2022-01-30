@@ -12,5 +12,4 @@ class JobForm(ModelForm):
 class ProjectForm(ModelForm):
     class Meta:
         model = Project
-        fields = ['company_name', 'title', 'link',
-                  'salary_min', 'salary_max', 'date']
+        fields = ['name', 'description', 'link']
