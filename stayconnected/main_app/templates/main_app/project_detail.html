@@ -12,8 +12,8 @@
                 <p>Project Description: {{ Project.description }} </p>
             </div>
             <div class="card-action">
-                <a href="{% url 'project_update' toy.id %}">Edit</a> <!-- FIXME: -->
-                <a href="{% url 'project_delete' toy.id %}">Delete</a> <!-- FIXME: -->
+                <a href="{% url 'project_update' project.id %}">Edit</a> <!-- FIXME: -->
+                <a href="{% url 'project_delete' project.id %}">Delete</a> <!-- FIXME: -->
             </div>
         </div>
     </div>
