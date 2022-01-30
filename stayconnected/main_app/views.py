@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import Project, Job
+from django.shortcuts import render, redirect
+from .models import Project, Job, Profile
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
@@ -21,13 +21,13 @@ def about(request):
 # def job_index(request):
 #     return render(request, 'jobs/job_index.html')  
 
-# class ProfileCreate(CreateView):
-#     model = Profile
-#     fields = '__all__' <----profile function for the model we havnt included yet
+class ProfileCreate(CreateView):
+    model = Profile
+    fields = '__all__' 
 
-# def profile_index(request):
-#     profiles = Profile.objects.filter(user=request.user)
-#     return render(request, 'profile/index.html', {'profiles': profiles}) <--- one more possible profile function
+def profile_index(request):
+    profiles = Profile.objects.filter(user=request.user)
+    return render(request, 'profile/index.html', {'profiles': profiles}) 
 
 class ProjectList(ListView):
     model = Project
@@ -68,6 +68,16 @@ class ProjectUpdate(UpdateView):
 class ProjectDelete(DeleteView):
     model = Project
     success_url = '/TBD/'  # To Be Determined on the success URL
+
+def assoc_project(request, profile_id, project_id):
+    profile = Profile.objects.get(id=profile_id)
+    profile.projects.add(project_id)
+    return redirect('profile', profile_id=profile_id)
+
+def assoc_job(request, profile_id, job_id):
+    profile = Profile.objects.get(id=profile_id)
+    profile.jobs.add(job_id)
+    return redirect('profile', profile_id=profile_id)
 
 
 #hi this is working while we are all in different folders
