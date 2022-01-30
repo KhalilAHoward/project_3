@@ -4,7 +4,9 @@ from . import views
 urlpatterns = [
     path('', views.home, name='home'), #home page path
     path('about/', views.about, name='about'), #page with info about the team and the app
-    path('profile/', views.profile_index, name='index'), #<----will add in later
+    path('profile/', views.profile_index, name='index'),
+    # path('profile/<int:profile_id>/add_project/',
+    #      views.add_project, name='add_project'), #<----will add in later
     # path('profile/<int:profile_id>/', views.profile_detail, name='detail'), <---- will add in later
     path('profile/create/', views.ProfileCreate.as_view(), name='profile_create'),
     path('jobs/', views.JobList.as_view(), name='job_index'), #this will be the page that all the job postings show on
