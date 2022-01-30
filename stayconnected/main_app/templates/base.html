@@ -1,14 +1,16 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>SEI Stay Connected</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
 </head>
+
 <body>
   <header class="navbar-fixed">
     <nav>
@@ -24,6 +26,7 @@
 		  <li><a href="{% url 'project_index' %}">View All Projects</a></li>
           <li><a href="{% url 'index' %}">View My Profile</a></li>
         </ul>
+
       </div>
     </nav>
   </header>
@@ -35,6 +38,7 @@
     <div class="right">Join us and stay connected &copy; 2022 Team[0] &nbsp;</div>
   </footer>
 </body>
+
 </html>
 
 <!-- making a new pull request -->
