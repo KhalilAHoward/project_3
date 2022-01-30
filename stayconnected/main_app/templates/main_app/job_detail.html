@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<h1>Job Details</h1>
+
+<div class="row">
+    <div class="col s6 col-offset-3">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">{{ job.company_name }}</span>
+                <p>Title: {{ job.title }}</p>
+                <a href="{% job.link %}">Link to Job</a>
+                <p>Salary range: {{ job.salary_min }} to {{ job.salary_max }}</p>
+                <p>Date posted: {{ job.date }} </p>
+            </div>
+            <div class="card-action">
+                <a href="{% url 'job_update' toy.id %}">Edit</a> <!-- FIXME: -->
+                <a href="{% url 'job_delete' toy.id %}">Delete</a> <!-- FIXME: -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

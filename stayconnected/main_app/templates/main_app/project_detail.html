@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<h1>Project Details</h1>
+
+<div class="row">
+    <div class="col s6 col-offset-3">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">{{ Project.name }}</span>
+                <a href="{% project.link %}">Link to Project</a>
+                <p>Project Description: {{ Project.description }} </p>
+            </div>
+            <div class="card-action">
+                <a href="{% url 'project_update' toy.id %}">Edit</a> <!-- FIXME: -->
+                <a href="{% url 'project_delete' toy.id %}">Delete</a> <!-- FIXME: -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
