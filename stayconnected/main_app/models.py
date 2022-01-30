@@ -1,6 +1,6 @@
 
 # Jake was here (branch name John)
-
+from django.urls import reverse
 from django.db import models
 from datetime import date
 
@@ -23,6 +23,12 @@ class Job(models.Model):
 
     class Meta:
         ordering = ['-date']
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('job_detail', kwargs={'pk': self.id})
 
     # def __str__(self):
 
