@@ -24,9 +24,9 @@ class Job(models.Model):
     class Meta:
         ordering = ['-date']
 
-    def __str__(self):
+    # def __str__(self):
 
-        return f"{self.get_link_display()} on {self.date}"
+    #     return f"{self.get_link_display()} on {self.date}"
 
 class Profile(models.Model):
     name = models.CharField(max_length=50)
