@@ -37,7 +37,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('index')
+            return redirect('profile')
         else:
             error_message = 'Invalid sign up - try again'
     form = UserCreationForm()
@@ -53,7 +53,7 @@ class ProfileCreate(CreateView):
         return super().form_valid(form)
 
 def profile_index(request):
-    # profiles = Profile.objects.filter(user=request.user)
+    profiles = Profile.objects.filter(user=request.user)
     return render(request, 'profile/detail.html') 
 
 class ProjectList(ListView):

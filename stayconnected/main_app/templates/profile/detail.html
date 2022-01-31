@@ -12,4 +12,46 @@
     </div>
     </div>
 
+    <hr />
+    <div class="row">
+      <div class="col s6">
+        <h3>{{ profile.name }}'s Projects</h3>
+        {% if profile.projects.count %}
+          {% for project in profile.projects.all %}
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title">
+                  A <span>Project by {{ project.name }}</span> 
+                </span>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <h5>You have no projects</h5>
+        {% endif %}
+      </div>
+
+      <div class="col s6">
+        <h3>Available Projects, Pick yours!</h3>
+        {% if projects.count %}
+          {% for project in projects.all %}
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title">
+                  A <span>Project by {{ project.name }}</span> 
+                </span>
+              </div>
+              <div class="card-action">
+                <form action="{% url 'assoc_project' profile.id project.id %}" method="post">
+                  {% csrf_token %}
+                  <button type="submit" class="btn">Add</button>
+                </form>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <h5>{{profile.name}} has all of their projects!</h5>
+        {% endif %}
+      </div>
+    </div>
     {% endblock %}
