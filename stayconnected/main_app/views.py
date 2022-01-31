@@ -46,7 +46,7 @@ def signup(request):
 
 class ProfileCreate(CreateView):
     model = Profile
-    fields = ['name', 'description', 'link'] 
+    fields = '__all__'
 
     def form_valid(self, form):
         form.instance.user = self.request.user
