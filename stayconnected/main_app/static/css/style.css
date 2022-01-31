@@ -12,3 +12,8 @@ body {
     padding-top: 0;
     text-align: right;
   }
+
+  .brand-icon {
+    max-width: 20px;
+    max-height: 20px;
+  }

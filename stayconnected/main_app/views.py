@@ -6,12 +6,16 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 
+
 # Add the following import
 from django.http import HttpResponse
 
 # Define the home view
+
+
 def home(request):
-  return HttpResponse('<h1>Hello /ᐠ｡‸｡ᐟ\ﾉ</h1>')
+    return HttpResponse('<h1>Hello /ᐠ｡‸｡ᐟ\ﾉ</h1>')
+
 
 def about(request):
     return render(request, 'about.html')
@@ -20,7 +24,7 @@ def about(request):
 #     return render(request, 'projects/project_index.html')
 
 # def job_index(request):
-#     return render(request, 'jobs/job_index.html')  
+#     return render(request, 'jobs/job_index.html')
 
 # def add_project(request, profile_id):
 #     form = ProjectForm(request.POST)
@@ -29,6 +33,7 @@ def about(request):
 #         new_project.profile_id = profile_id
 #         new_project.save()
 #     return redirect('detail', profile_id=profile_id)
+
 
 def signup(request):
     error_message = ''
@@ -52,6 +57,7 @@ def signup(request):
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
 
+
 class ProfileCreate(CreateView):
     model = Profile
     fields = ['user']
@@ -62,6 +68,7 @@ class ProfileCreate(CreateView):
         # form.instance.user = self.request.user
         # return super().form_valid(form)
 
+
 def profile_index(request):
     profile = Profile.objects.get(user=request.user)
     return render(request, 'profile/detail.html', {'profile':profile}) 
@@ -70,8 +77,10 @@ class ProjectList(ListView):
     model = Project
     template = 'job_list.html'
 
+
 class JobList(ListView):
     model = Job
+
 
 class JobDetail(DetailView):
     model = Job
@@ -81,6 +90,7 @@ class JobCreate(CreateView):
     model = Job
     fields = '__all__'
 
+
 class ProjectDetail(DetailView):
     model = Project
 
@@ -89,6 +99,7 @@ class ProjectCreate(CreateView):
     model = Project
     fields = '__all__'
 
+
 class JobUpdate(UpdateView):
     model = Job
     fields = '__all__'
@@ -96,7 +107,8 @@ class JobUpdate(UpdateView):
 
 class JobDelete(DeleteView):
     model = Job
-    success_url = '/profile/' # To Be Determined on the success URL
+    success_url = '/profile/'  # To Be Determined on the success URL
+
 
 class ProjectUpdate(UpdateView):
     model = Project
@@ -107,10 +119,12 @@ class ProjectDelete(DeleteView):
     model = Project
     success_url = '/profile/'  # To Be Determined on the success URL
 
+
 def assoc_project(request, profile_id, project_id):
     profile = Profile.objects.get(id=profile_id)
     profile.projects.add(project_id)
     return redirect('profile', profile_id=profile_id)
+
 
 def assoc_job(request, profile_id, job_id):
     profile = Profile.objects.get(id=profile_id)
@@ -118,5 +132,4 @@ def assoc_job(request, profile_id, job_id):
     return redirect('profile', profile_id=profile_id)
 
 
-#hi this is working while we are all in different folders
-
+# hi this is working while we are all in different folders
