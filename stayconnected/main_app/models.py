@@ -47,8 +47,10 @@ class Profile(models.Model):
     job = models.ForeignKey(Job, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
+
 class Comment(models.Model):
     comment = models.TextField()
     created_on = models.DateTimeField(default=DateTimeInput)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+
