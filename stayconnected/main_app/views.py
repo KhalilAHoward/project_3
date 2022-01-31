@@ -4,7 +4,10 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+<<<<<<< HEAD
 from django.urls import reverse_lazy
+=======
+>>>>>>> c5504e1 (fleshed out detail and list templates)
 
 
 # Add the following import
@@ -70,8 +73,14 @@ class ProfileCreate(CreateView):
 
 
 def profile_index(request):
+<<<<<<< HEAD
     profile = Profile.objects.get(user=request.user)
     return render(request, 'profile/detail.html', {'profile':profile}) 
+=======
+    profiles = Profile.objects.filter(user=request.user)
+    return render(request, 'profile/detail.html')
+
+>>>>>>> c5504e1 (fleshed out detail and list templates)
 
 class ProjectList(ListView):
     model = Project
