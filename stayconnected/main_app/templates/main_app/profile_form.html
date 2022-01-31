@@ -2,7 +2,7 @@
 
 <!-- New if/else block -->
 {% if object %}
-<h1>Edit <span class="teal-text">{{object.name}}</span></h1>
+<h1>Edit <span class="teal-text">{{object.user}}</span></h1>
 {% else %}
 <h1>Create Profile</h1>
 {% endif %}
@@ -16,4 +16,21 @@
   </table>
   <input type="submit" value="Submit!" class="btn" />
 </form>
+{% if form.subject.errors %}
+    <ol>
+    {% for error in form.subject.errors %}
+        <li><strong>{{ error|escape }}</strong></li>
+    {% endfor %}
+    </ol>
+{% endif %}
+
+
+<script>
+	
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems);
+    });
+
+</script>
 {% endblock %}
