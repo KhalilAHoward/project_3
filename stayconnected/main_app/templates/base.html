@@ -8,7 +8,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>SEI Stay Connected</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 
 <body>
@@ -23,16 +24,18 @@
           <!-- <li><a href="/about">About</a></li>           -->
           <li><a href="{% url 'about' %}">About</a></li>
           {% if user.is_authenticated %}
-          <li><a href="{% url 'job_create' %}">Add a Job Post</a></li>
-          <li><a href="{% url 'job_index' %}">View All Job Posts</a></li>
-          <li><a href="{% url 'project_create' %}">Add a Project</a></li>
-          <li><a href="{% url 'project_index' %}">View All Projects</a></li>
-          <li><a href="{% url 'profile_create' %}">Create a Profile</a></li>
-          <li><a href="{% url 'index' %}">View My Profile</a></li>
-          <li><a href="{% url 'logout' %}">Log Out</a></li>
+            <li><a href="{% url 'job_create' %}">Add a Job Post</a></li>
+            <li><a href="{% url 'job_index' %}">View All Job Posts</a></li>
+            <li><a href="{% url 'project_create' %}">Add a Project</a></li>
+            <li><a href="{% url 'projects_index' %}">View All Projects</a></li>
+			<li><a href="{% url 'profile_create' %}">Create a Profile</a></li>
+            <li><a href="{% url 'index' %}">View My Profile</a></li>            
+            <li><a href="{% url 'logout' %}">Log Out</a></li>
           {% else %}
-          <li><a href="{% url 'signup' %}">Sign Up</a></li>
-          <li><a href="{% url 'login' %}">Log In</a></li>
+		  	<li><a href="{% url 'profile_create' %}">Create a Profile</a></li>
+
+            <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            <li><a href="{% url 'login' %}">Log In</a></li>
           {% endif %}
         </ul>
       </div>

@@ -4,6 +4,8 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+
 
 # Add the following import
 from django.http import HttpResponse
@@ -39,8 +41,16 @@ def signup(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
+            print(user, 'this is the user')
             login(request, user)
+
+            profile = Profile(user.username)
+            print(profile)
+            profile.save()
+            return redirect('index')
+
             return redirect('profile_form')
+
         else:
             error_message = 'Invalid sign up - try again'
     form = UserCreationForm()
@@ -50,20 +60,22 @@ def signup(request):
 
 class ProfileCreate(CreateView):
     model = Profile
-    fields = '__all__'
+    fields = ['user']
 
     def form_valid(self, form):
-        form.instance.user = self.request.user
+        self.object = form.save()
         return super().form_valid(form)
+        # form.instance.user = self.request.user
+        # return super().form_valid(form)
 
 
 def profile_index(request):
-    profiles = Profile.objects.filter(user=request.user)
-    return render(request, 'profile/detail.html')
-
+    profile = Profile.objects.get(user=request.user)
+    return render(request, 'profile/detail.html', {'profile':profile}) 
 
 class ProjectList(ListView):
     model = Project
+    template = 'job_list.html'
 
 
 class JobList(ListView):

@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Job, Project
+from .models import Job, Project, Profile
 
 
 class JobForm(ModelForm):
@@ -13,3 +13,8 @@ class ProjectForm(ModelForm):
     class Meta:
         model = Project
         fields = ['name', 'description', 'link']
+
+class ProfileForm(ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['user']
