@@ -1,14 +1,4 @@
-/* .nav-wrapper {
-    display: flex;
-}
 
-.left-brand-logo-container {
-    margin-right: auto;
-}
-
-.profile-link {
-    margin-left: auto;
-}
 
 body {
     display: flex;
@@ -23,5 +13,9 @@ body {
   footer.page-footer {
     padding-top: 0;
     text-align: right;
-  } */
+  }
 
+  .brand-icon {
+    max-width: 20px;
+    max-height: 20px;
+  }
