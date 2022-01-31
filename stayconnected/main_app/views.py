@@ -85,7 +85,7 @@ class JobUpdate(UpdateView):
 
 class JobDelete(DeleteView):
     model = Job
-    success_url = '/TBD/' # To Be Determined on the success URL
+    success_url = '/profile/' # To Be Determined on the success URL
 
 class ProjectUpdate(UpdateView):
     model = Project
@@ -94,7 +94,7 @@ class ProjectUpdate(UpdateView):
 
 class ProjectDelete(DeleteView):
     model = Project
-    success_url = '/TBD/'  # To Be Determined on the success URL
+    success_url = '/profile/'  # To Be Determined on the success URL
 
 def assoc_project(request, profile_id, project_id):
     profile = Profile.objects.get(id=profile_id)

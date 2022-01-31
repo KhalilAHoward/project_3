@@ -3,7 +3,7 @@
 
 <h1>Job List</h1>
 
-{% for job in jobs%}
+{% for job in jobs %}
 <a href="{% url 'job_detail' job.id %}">
     <div class="card">
         <div class="card-content">
