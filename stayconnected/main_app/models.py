@@ -7,7 +7,6 @@ from datetime import date
 from django.contrib.auth.models import User
 # Create your models here.
 
-
 class Project(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField(max_length=250)
@@ -18,7 +17,6 @@ class Project(models.Model):
 
     def get_absolute_url(self):
         return reverse('project_detail', kwargs={'pk': self.id})
-
 
 class Job(models.Model):
     company_name = models.CharField(max_length=50)
