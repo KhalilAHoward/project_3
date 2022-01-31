@@ -39,12 +39,12 @@ def signup(request):
             print(user, 'this is the user')
             login(request, user)
 
-            profile = Profile(user.username)
+            profile = Profile(user=user.id, username=user.username)
             print(profile)
             profile.save()
-            # return redirect('index')
+            return redirect('index')
 
-            return redirect('profile_form')
+            # return redirect('profile_form')
 
         else:
             error_message = 'Invalid sign up - try again'

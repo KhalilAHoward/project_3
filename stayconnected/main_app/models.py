@@ -49,18 +49,18 @@ class Profile(models.Model):
         primary_key=True,
         )
 
-#     def __str__(self):
-#         return self.user.username
-
-# @receiver(post_save, sender=User)
-# def update_profile_signal(sender, instance, created, **kwargs):
-#     if created:
-#         Profile.objects.create(user=instance)
-#     instance.profile.save()
-
-
     def __str__(self):
-        return f'{self.user.username} Profile'
+        return self.user.username
+
+@receiver(post_save, sender=User)
+def update_profile_signal(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+    instance.profile.save()
+
+
+    # def __str__(self):
+    #     return f'{self.user.username} Profile'
 
 # class Profile(models.Model):
 #     name = models.CharField(max_length=50)
@@ -71,9 +71,9 @@ class Profile(models.Model):
 #     def __str__(self):
 #         return self.name
 
-    def get_absolute_url(self):
-        print(self, 'this is selffff')
-        return reverse('detail', kwargs={'profile_id': self.pk})
+def get_absolute_url(self):
+    print(self, 'this is selffff')
+    return reverse('detail', kwargs={'profile_id': self.pk})
         
 
 
