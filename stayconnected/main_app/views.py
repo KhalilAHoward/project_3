@@ -42,7 +42,7 @@ def signup(request):
             profile = Profile(user.username)
             print(profile)
             profile.save()
-            return redirect('index')
+            # return redirect('index')
 
             return redirect('profile_form')
 
