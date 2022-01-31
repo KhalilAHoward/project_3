@@ -71,7 +71,8 @@ class ProfileCreate(CreateView):
 
 def profile_index(request):
     profile = Profile.objects.get(user=request.user)
-    return render(request, 'profile/detail.html', {'profile':profile}) 
+    return render(request, 'profile/detail.html', {'profile': profile})
+
 
 class ProjectList(ListView):
     model = Project
