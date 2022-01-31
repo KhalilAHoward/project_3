@@ -8,7 +8,7 @@
         <div class="card">
             <div class="card-content">
                 <span class="card-title">{{ Project.name }}</span>
-                <a href="{% project.link %}">Link to Project</a>
+                <a href={{ project.link }}>{{ project.link }}</a>
                 <p>Project Description: {{ Project.description }} </p>
             </div>
             <div class="card-action">
