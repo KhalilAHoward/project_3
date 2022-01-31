@@ -1,5 +1,6 @@
 
 # Jake was here (branch name John)
+from django.forms import DateInput, DateTimeInput
 from django.urls import reverse
 from django.db import models
 from datetime import date
@@ -45,3 +46,9 @@ class Profile(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     job = models.ForeignKey(Job, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+class Comment(models.Model):
+    comment = models.TextField()
+    created_on = models.DateTimeField(default=DateTimeInput)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
