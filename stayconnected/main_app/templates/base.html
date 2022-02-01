@@ -10,6 +10,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
   {% block extrahead %}
 
   {% endblock extrahead %}
@@ -21,25 +25,31 @@
       <a href="{% url 'about' %}" class='brand-link'><img class="brand-icon"
           src="{% static 'images/SEISC-Logo-Main.png' %}"></a>
     </div>
-    {% if user.is_authenticated %}
+
     <div class='links-holder' id='job-holder'>
       <div class='underline-animation' id='jobs'>JOBS</div>
       <a href="{% url 'job_create' %}" class='job-link underline-animation' id='job-add'>ADD JOB</a>
       <a href="{% url 'job_index' %}" class='job-link underline-animation' id='job-view'>VIEW JOBS</a>
     </div>
     <div class='links-holder'>
+      <div id='photos' class='underline-animation'>PHOTOS</div>
+      <a href="{% url 'photo_create' %}" class='photo-link underline-animation' id='photo-add'>ADD PHOTOS</a>
+      <a href="{% url 'photo_index' %}" class='photo-link underline-animation' id='photo-view'>VIEW PHOTOS</a>
+    </div>
+    <div class='links-holder'>
       <div id='projects' class='underline-animation'>PROJECTS</div>
       <a href="{% url 'project_create' %}" class='project-link underline-animation' id='project-add'>ADD PROJECT</a>
       <a href="{% url 'projects_index' %}" class='project-link underline-animation' id='project-view'>VIEW PROJECTS</a>
     </div>
+    {% if user.is_authenticated %}
     <div class="profile-management">
       <a href="{% url 'index' %}" class="underline-animation">MY PROFILE</a>
       <a href="{% url 'logout' %}" class="underline-animation">LOG-OUT</a>
     </div>
     {% else %}
     <div class="profile-management" id='no-user-profile-management'>
-      <a href="{% url 'signup' %}" class='underline-animation'>Sign Up</a>
-      <a href="{% url 'login' %}" class="underline-animation">Log In</a>
+      <a href="{% url 'signup' %}" class='underline-animation'>SIGN UP</a>
+      <a href="{% url 'login' %}" class="underline-animation">LOG-IN</a>
     </div>
     {% endif %}
   </header>
@@ -55,4 +65,3 @@
 
 </html>
 
-<!-- making a new pull request -->

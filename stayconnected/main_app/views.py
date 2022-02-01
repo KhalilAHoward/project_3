@@ -9,7 +9,12 @@ import uuid
 import boto3
 
 # Add the following import
+
 from django.http import HttpResponseRedirect
+
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
 BUCKET = 'sei-stay-connected'
@@ -44,12 +49,13 @@ def signup(request):
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
 
+@login_required
 def profile_index(request):
     profile = Profile.objects.get(user=request.user)
     return render(request, 'profile/detail.html', {'profile':profile}) 
     
 
-class ProjectList(ListView):
+class ProjectList(LoginRequiredMixin, ListView):
     model = Project
     template = 'job_list.html'
 
@@ -62,36 +68,36 @@ class JobDetail(DetailView):
     model = Job
 
 
-class JobCreate(CreateView):
+class JobCreate(LoginRequiredMixin, CreateView):
     model = Job
     fields = '__all__'
 
 
-class ProjectDetail(DetailView):
+class ProjectDetail(LoginRequiredMixin, DetailView):
     model = Project
 
 
-class ProjectCreate(CreateView):
+class ProjectCreate(LoginRequiredMixin, CreateView):
     model = Project
     fields = '__all__'
 
 
-class JobUpdate(UpdateView):
+class JobUpdate(LoginRequiredMixin, UpdateView):
     model = Job
     fields = '__all__'
 
 
-class JobDelete(DeleteView):
+class JobDelete(LoginRequiredMixin, DeleteView):
     model = Job
     success_url = '/profile/'  
 
 
-class ProjectUpdate(UpdateView):
+class ProjectUpdate(LoginRequiredMixin, UpdateView):
     model = Project
     fields = '__all__'
 
 
-class ProjectDelete(DeleteView):
+class ProjectDelete(LoginRequiredMixin, DeleteView):
     model = Project
     success_url = '/profile/'  
 
