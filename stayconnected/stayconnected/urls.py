@@ -22,7 +22,6 @@ urlpatterns = [
     # In this case '' represents the root route
     path('', include('main_app.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('users/<int:user_id>/add_photo/', views.add_photo, name='add_photo'),
 ]
 
 #Khalil
