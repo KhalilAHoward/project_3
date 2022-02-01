@@ -1,0 +1,18 @@
+:root {
+    --background: rgb(96, 130, 158);
+    --navBackground: #B1A296;
+    --navText: #5D5C61;
+    --legendBackground: rgb(130, 120, 130);
+    --formText: #557a95;
+  }
+  
+fieldset {
+    background-color: var(--navText);
+}
+
+legend {
+  background-color: var(--navBackground);
+  padding: 5px 10px;
+  font-size: 40px;
+  color: var(--navText);
+}
