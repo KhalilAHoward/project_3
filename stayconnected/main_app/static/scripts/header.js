@@ -9,11 +9,17 @@ const projectDiv = document.getElementById('projects');
 const projectAdd = document.getElementById('project-add');
 const projectView = document.getElementById('project-view');
 
+const photoHolder = document.getElementById('photo-holder');
+const photoDiv = document.getElementById('photos');
+const photoAdd = document.getElementById('photo-add');
+const photoView = document.getElementById('photo-view');
+
 const noUser = document.getElementById('no-user-profile-management');
 
 if (!noUser) {
     let jobLinks = document.querySelectorAll('.job-link');
     let projectLinks = document.querySelectorAll('.project-link');
+    let photoLinks = document.querySelectorAll('.photo-link');
 
     jobDiv.addEventListener('click', function (event) {
         jobDiv.style.display = 'none';
@@ -29,7 +35,15 @@ if (!noUser) {
             unfade(project);
         });
         projectHolder.classList.add('holder-clicked');
-        projectHolder.classList.remove('job-holder');
+        projectHolder.classList.remove('project-holder');
+    });
+    photoDiv.addEventListener('click', function (event) {
+        photoDiv.style.display = 'none';
+        photoLinks.forEach(function (photo) {
+            unfade(photo);
+        });
+        photoHolder.classList.add('holder-clicked');
+        photoHolder.classList.remove('photo-holder');
     });
 }
 
