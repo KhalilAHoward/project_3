@@ -14,7 +14,7 @@
                 <div class="card-panel teal-text center-align">No Memes Uploaded</div>
                 {% endfor %}
 
-                <form action="{% url 'add_photo' photo.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
+                <form action="{% url 'add_photo' %}" enctype="multipart/form-data" method="POST" class="card-panel">
                     {% csrf_token %}
                     <input type="file" name="photo-file">
                     <br><br>
