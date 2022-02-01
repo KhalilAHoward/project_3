@@ -2,6 +2,7 @@
   --background: rgb(96, 130, 158);
   --navBackground: #B1A296;
   --navText: #5D5C61;
+  --font: 'Quicksand', sans-serif;
 }
 
 a, a:hover, a:visited, a:active {
@@ -32,6 +33,7 @@ header {
   display: inline-block;
   position: relative;
   color: var(--navText);
+  font-family: var(--font);
 }
 
 .underline-animation:hover {
@@ -78,7 +80,7 @@ header {
   content: url(/static/images/SEISC-Logo-Hover.png);
 }
 
-.job-link, .project-link {
+.job-link, .project-link, .photo-link {
   display: none;
 }
 
@@ -124,3 +126,6 @@ main {
   color: black;
 }
 
+html {
+  font-family: var(--font);
+}
