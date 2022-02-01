@@ -7,7 +7,11 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 import uuid
 import boto3
+
+from .forms import CommentForm
+
 import botocore
+
 
 
 # Add the following import
@@ -62,7 +66,18 @@ def signup(request):
 @login_required
 def profile_index(request):
     profile = Profile.objects.get(user=request.user)
-    return render(request, 'profile/detail.html', {'profile':profile}) 
+    projects =  Project.objects.filter(user=request.user)
+    return render(request, 'profile/detail.html', {'profile':profile, 'projects': projects}) 
+
+def add_comment(request, project_id):
+
+    form = CommentForm(request.POST)
+   
+    if form.is_valid():
+        new_comment = form.save(commit=False)
+        new_comment.project_id = project_id
+        new_comment.save() 
+    return redirect('project_detail', project_id=project_id)
     
 
 class ProjectList(LoginRequiredMixin, ListView):
@@ -85,6 +100,7 @@ class JobCreate(LoginRequiredMixin, CreateView):
 
 class ProjectDetail(LoginRequiredMixin, DetailView):
     model = Project
+    comment_form = CommentForm()
 
 
 class ProjectCreate(LoginRequiredMixin, CreateView):
