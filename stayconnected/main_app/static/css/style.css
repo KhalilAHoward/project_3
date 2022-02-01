@@ -1,19 +1,19 @@
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-  
-  main {
-    flex: 1 0 auto;
-  }
-  
-  footer.page-footer {
-    padding-top: 0;
-    text-align: right;
-  }
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
 
-  .brand-icon {
-    max-width: 20px;
-    max-height: 20px;
-  }
+main {
+ flex: 1 0 auto;
+}
+
+footer.page-footer {
+	padding-top: 0;
+	text-align: right;
+}
+
+.brand-icon {
+	max-width: 20px;
+	max-height: 20px;
+}
