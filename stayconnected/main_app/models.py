@@ -49,6 +49,7 @@ class Profile(models.Model):
 
 @receiver(post_save, sender=User)
 def update_profile_signal(sender, instance, created, **kwargs):
+    print(sender, instance, created)
     if created:
         Profile.objects.create(user=instance)
     instance.profile.save()
@@ -68,6 +69,6 @@ class Photo(models.Model):
     url = models.CharField(max_length=200)
 
     def __str__(self):
-        return f"Photo for: {self} @{self.url}"
+        return f"Photo for: @{self.url}"
 
 

@@ -7,7 +7,12 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 import uuid
 import boto3
+
 from .forms import CommentForm
+
+import botocore
+
+
 
 # Add the following import
 
@@ -30,11 +35,6 @@ BUCKET = 'sei-stay-connected'
 # Define the home view
 
 
-S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
-BUCKET = 'sei-stay-connected'
-
-# Define the home view
-
 
 def home(request):
     return HttpResponseRedirect('/about/')
@@ -52,9 +52,9 @@ def signup(request):
             print(dir(user))
             login(request, user)
 
-            profile = Profile(user=user, username=user.username)
-            print(profile)
-            profile.save()
+            # profile = Profile(user=user, username=user.username)
+            # print(profile)
+            # profile.save()
             return redirect('index')
 
         else:
@@ -150,10 +150,11 @@ def add_photo(request):
             print(f'printing url {url}')
             # we can assign to cat_id or cat (if you have a cat object)
             photo = Photo(url=url)
-            photo.save()
+            print(f'printing photo class {Photo}')
             print(f'printing photo {photo}')
-        except:
-            print('An error occurred uploading file to S3')
+            photo.save()
+        except botocore.exceptions.ClientError as error:
+            print(error, " <-this aws error")
     return redirect('photo_list')
 
 class PhotoList(ListView):
