@@ -42,9 +42,10 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             print(user, 'this is the user')
+            print(dir(user))
             login(request, user)
 
-            profile = Profile(user=user.id, username=user.username)
+            profile = Profile(user=user, username=user.username)
             print(profile)
             profile.save()
             return redirect('index')
@@ -65,14 +66,14 @@ class ProfileCreate(CreateView):
     def form_valid(self, form):
         self.object = form.save()
         return super().form_valid(form)
-        # form.instance.user = self.request.user
-        # return super().form_valid(form)
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 def profile_index(request):
     profile = Profile.objects.get(user=request.user)
-    return render(request, 'profile/detail.html', {'profile': profile})
-
+    return render(request, 'profile/detail.html', {'profile':profile}) 
+    
 
 class ProjectList(ListView):
     model = Project
