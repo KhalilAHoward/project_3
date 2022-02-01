@@ -20,6 +20,8 @@ import boto3
 
 # Add the following import
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
 BUCKET = 'sei-stay-connected'
