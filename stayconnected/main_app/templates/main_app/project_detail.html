@@ -14,8 +14,8 @@
             {% if project.user.id == user.id %}
             <div class="card-action">
                 
-                <a href="{% url 'project_update' project.id %}">Edit</a> <!-- FIXME: -->
-                <a href="{% url 'project_delete' project.id %}">Delete</a> <!-- FIXME: -->
+                <a href="{% url 'project_update' project.id %}">Edit</a> 
+                <a href="{% url 'project_delete' project.id %}">Delete</a> 
             </div>
             {% endif %}
         </div>
