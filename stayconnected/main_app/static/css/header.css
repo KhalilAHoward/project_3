@@ -1,31 +1,72 @@
+:root {
+  --background: rgb(96, 130, 158);
+  --navBackground: #B1A296;
+  --navText: #5D5C61;
+}
+
+a, a:hover, a:visited, a:active {
+  color: var(--navText);
+  text-decoration: none;
+ }
 
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-  
-main {
-  flex: 1 0 auto;
-}
-  
-footer.page-footer {
-  padding-top: 0;
-  text-align: right;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: var(--background);
+  margin-top: 80px;
 }
 
-nav {
+/* The position rules keep the navbar fixed on the page*/
+header {
   height: 80px;
+  display: flex;
+  align-items: center;
+  gap: clamp(40px, calc(7vw), 80px);
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.underline-animation {
+  display: inline-block;
+  position: relative;
+  color: var(--navText);
+}
+
+.underline-animation:hover {
+  cursor: pointer;
+}
+
+.underline-animation:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--navText);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* These two rules give the navbar a dynamic coloring on scroll*/
+.header-colored {
+  background-color: var(--navBackground)
+}
+.header-transparent {
+  background-color: var(--background);
 }
 
 .brand-icon, .icon-wrapper {
   max-width: 50px;
   max-height: 50px;
-}
-
-.nav-wrapper {
-  display: flex;
-  align-items: center;
 }
 
 .icon-wrapper {
@@ -36,6 +77,27 @@ nav {
 .brand-link:hover img {
   content: url(/static/images/SEISC-Logo-Hover.png);
 }
+
+.job-link, .project-link {
+  display: none;
+}
+
+.links-holder, .holder-clicked{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+}
+
+.links-holder div {
+  font-size: clamp(20px, calc(3vw), 40px);
+}
+
+.links-holder a, .profile-management a {
+  font-size: clamp(10px, calc(2vw), 20px);
+}
+
 
 .profile-management {
   display: flex;
@@ -48,5 +110,17 @@ nav {
 
 div.profile-management > a {
   padding: 5px;
-  font-size: 20px;
 }
+
+
+main {
+  flex: 1 0 auto;
+}
+  
+.page-footer {
+  padding-top: 0;
+  text-align: right;
+  background-color: var(--background);
+  color: black;
+}
+
