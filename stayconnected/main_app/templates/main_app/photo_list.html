@@ -8,8 +8,9 @@
     <div class="col s6">
         <div class="card">
             <div class="card-content">
-                {% for photo in user.photo_set.all %}
-                <img class="responsive-img card-panel" src="{{photo.url}}">
+
+                {% for p in object_list %}
+                <img class="responsive-img card-panel" src="{{p.url}}">
                 {% empty %}
                 <div class="card-panel teal-text center-align">No Memes Uploaded</div>
                 {% endfor %}
