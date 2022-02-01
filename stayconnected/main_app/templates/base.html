@@ -17,9 +17,9 @@
     <nav>
       <div class="nav-wrapper">
         <div class='icon-wrapper'>
-          <a href="/" class='brand-link'><img class="brand-icon" src="{% static 'images/SEISC-Logo-Main.png' %}"></a>
+          <a href="{% url 'about' %}" class='brand-link'><img class="brand-icon"
+              src="{% static 'images/SEISC-Logo-Main.png' %}"></a>
         </div>
-        <div><a href="{% url 'about' %}">About</a></div>
         {% if user.is_authenticated %}
         <div><a href="{% url 'job_create' %}">Add a Job Post</a></div>
         <div><a href="{% url 'job_index' %}">View All Job Posts</a></div>
