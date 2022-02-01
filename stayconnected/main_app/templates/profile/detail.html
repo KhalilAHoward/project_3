@@ -13,4 +13,11 @@
     </div>
 
     <hr />
+    {% for project in projects  %}
+    <div>{{ project.link }}</div>
+      
+    {% empty %}
+      
+    {% endfor %}
+      
     {% endblock %}

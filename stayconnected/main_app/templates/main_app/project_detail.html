@@ -21,4 +21,30 @@
         </div>
     </div>
 </div>
+
+<div class="col s6">
+    <form method="post" action="{% url 'add_comment' project.id %}">
+      {% csrf_token %} 
+	  {{ comment_form.as_p }}
+      <input type="text" value="" />
+      <input type="submit" class="btn" value="Add comment" />
+    </form>
+
+<table class="striped">
+    <thead>
+      <tr>
+        <th>Comment</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for comment in project.comment_set.all %}
+      <tr>
+        <td>{{comment.created_on}}</td>
+        <td>{{comment.get_comment_display}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+</div>
 {% endblock %}
