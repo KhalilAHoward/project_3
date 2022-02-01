@@ -14,6 +14,17 @@ from django.http import HttpResponseRedirect
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
+import uuid
+import boto3
+
+# Add the following import
+from django.http import HttpResponse
+
+S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
+BUCKET = 'sei-stay-connected'
+
+# Define the home view
 
 
 S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
