@@ -9,9 +9,12 @@ import uuid
 import boto3
 
 # Add the following import
-from django.http import HttpResponse
+
+from django.http import HttpResponseRedirect
+
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
 BUCKET = 'sei-stay-connected'
@@ -20,8 +23,7 @@ BUCKET = 'sei-stay-connected'
 
 
 def home(request):
-    return HttpResponse('<h1>Hello /ᐠ｡‸｡ᐟ\ﾉ</h1>')
-
+    return HttpResponseRedirect('/about/')
 
 def about(request):
     return render(request, 'about.html')
@@ -119,5 +121,8 @@ def add_photo(request, user_id):
             Photo.objects.create(url=url, user_id=user_id)
         except:
             print('An error occurred uploading file to S3')
-    return redirect('detail', user_id=user_id)
+    return redirect('photo_list', user_id=user_id)
 
+class PhotoList(ListView):
+    model = Photo
+    template = 'photo_list.html'
