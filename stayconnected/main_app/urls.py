@@ -16,8 +16,8 @@ urlpatterns = [
     path('projects/<int:pk>/update/', views.ProjectUpdate.as_view(), name='project_update'), 
     path('projects/<int:pk>/delete/', views.ProjectDelete.as_view(), name='project_delete'), 
     path('accounts/signup/', views.signup, name='signup'),
-    path('memes/<int:photo_id>/add_photo/', views.add_photo, name='add_photo'),
-    path('memes/', views.PhotoList.as_view(), name='photo_index'), 
+    path('memes/add_photo/', views.add_photo, name='add_photo'),
+    path('memes/', views.PhotoList.as_view(), name='photo_list'), 
 #    path('memes/<int:pk>/delete/', views.MemeDelete.as_view(), name='meme_delete'), 
 ]
 
