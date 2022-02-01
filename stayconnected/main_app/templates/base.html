@@ -16,27 +16,25 @@
   <header class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
-        <ul>
-          <li><a href="/" class="left brand-logo"><img class="brand-icon"
-                src="{% static 'images/SEISC-Logo-Main.png' %}"></a></li>
-        </ul>
-        <ul class="right">
-          <!-- <li><a href="/about">About</a></li>           -->
-          <li><a href="{% url 'about' %}">About</a></li>
-          {% if user.is_authenticated %}
-          <li><a href="{% url 'job_create' %}">Add a Job Post</a></li>
-          <li><a href="{% url 'job_index' %}">View All Job Posts</a></li>
-          <li><a href="{% url 'project_create' %}">Add a Project</a></li>
-          <li><a href="{% url 'projects_index' %}">View All Projects</a></li>
-          <li><a href="{% url 'profile_create' %}">Create a Profile</a></li>
-          <li><a href="{% url 'index' %}">View My Profile</a></li>
-          <li><a href="{% url 'logout' %}">Log Out</a></li>
-          {% else %}
-          <li><a href="{% url 'profile_create' %}">Create a Profile</a></li>
-
-          <li><a href="{% url 'signup' %}">Sign Up</a></li>
-          <li><a href="{% url 'login' %}">Log In</a></li>
-          {% endif %}
+        <div class='icon-wrapper'>
+          <a href="/" class='brand-link'><img class="brand-icon" src="{% static 'images/SEISC-Logo-Main.png' %}"></a>
+        </div>
+        <div><a href="{% url 'about' %}">About</a></div>
+        {% if user.is_authenticated %}
+        <div><a href="{% url 'job_create' %}">Add a Job Post</a></div>
+        <div><a href="{% url 'job_index' %}">View All Job Posts</a></div>
+        <div><a href="{% url 'project_create' %}">Add a Project</a></div>
+        <div><a href="{% url 'projects_index' %}">View All Projects</a></div>
+        <div class="profile-management">
+          <a href="{% url 'index' %}">View My Profile</a>
+          <a href="{% url 'logout' %}">Log Out</a>
+        </div>
+        {% else %}
+        <div class="profile-management">
+          <a href="{% url 'signup' %}">Sign Up</a>
+          <a href="{% url 'login' %}">Log In</a>
+        </div>
+        {% endif %}
         </ul>
       </div>
     </nav>

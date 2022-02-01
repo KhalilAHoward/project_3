@@ -1,21 +1,52 @@
 
-
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
   }
   
-  main {
-    flex: 1 0 auto;
-  }
+main {
+  flex: 1 0 auto;
+}
   
-  footer.page-footer {
-    padding-top: 0;
-    text-align: right;
-  }
+footer.page-footer {
+  padding-top: 0;
+  text-align: right;
+}
 
-  .brand-icon {
-    max-width: 50px;
-    max-height: 50px;
-  }
+nav {
+  height: 80px;
+}
+
+.brand-icon, .icon-wrapper {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.icon-wrapper {
+  margin-right: auto;
+  margin-left: 10px;
+}
+
+.brand-link:hover img {
+  content: url(/static/images/SEISC-Logo-Hover.png);
+}
+
+.profile-management {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  line-height: normal;
+  margin: 10px 10px 10px auto;
+  align-items: flex-end;
+}
+
+div.profile-management > a {
+  padding: 5px;
+  font-size: 20px;
+}
