@@ -8,7 +8,7 @@ urlpatterns = [
     # path('profile/<int:profile_id>/add_project/',
     #      views.add_project, name='add_project'), #<----will add in later
     # path('profile/<int:profile_id>/', views.profile_detail, name='detail'), <---- will add in later
-    path('profile/create/', views.ProfileCreate.as_view(), name='profile_create'),
+    # path('profile/create/', views.ProfileCreate.as_view(), name='profile_create'),
     path('jobs/', views.JobList.as_view(), name='job_index'), #this will be the page that all the job postings show on
     path('projects/', views.ProjectList.as_view(), name='projects_index'), #this will be the path for the page that all the projects show on
     path('profile/<int:profile_id>/assoc_project/<int:project_id>/', views.assoc_project, name='assoc_project'), #<----- will add in later

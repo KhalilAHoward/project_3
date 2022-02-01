@@ -58,16 +58,15 @@ def signup(request):
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
 
+# class ProfileCreate(CreateView):
+#     model = Profile
+#     fields = ['user']
 
-class ProfileCreate(CreateView):
-    model = Profile
-    fields = ['user']
-
-    def form_valid(self, form):
-        self.object = form.save()
-        return super().form_valid(form)
-        form.instance.user = self.request.user
-        return super().form_valid(form)
+#     def form_valid(self, form):
+#         self.object = form.save()
+#         return super().form_valid(form)
+#         form.instance.user = self.request.user
+#         return super().form_valid(form)
 
 
 def profile_index(request):
