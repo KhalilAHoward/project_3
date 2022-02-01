@@ -26,7 +26,7 @@
     <form method="post" action="{% url 'add_comment' project.id %}">
       {% csrf_token %} 
 	  {{ comment_form.as_p }}
-      <input type="text" value="" />
+      <!-- <input type="text" value="add comment here" /> -->
       <input type="submit" class="btn" value="Add comment" />
     </form>
 
@@ -40,11 +40,21 @@
       {% for comment in project.comment_set.all %}
       <tr>
         <td>{{comment.created_on}}</td>
-        <td>{{comment.get_comment_display}}</td>
+        <td>{{comment.comment}}</td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
 </div>
 </div>
+
+<script>
+	
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems);
+    });
+
+</script>
+
 {% endblock %}

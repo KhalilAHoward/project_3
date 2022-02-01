@@ -1,4 +1,3 @@
-from django.forms import DateInput, DateTimeInput
 from django.urls import reverse
 from django.db import models
 from datetime import date
@@ -61,9 +60,12 @@ def get_absolute_url(self):
 
 class Comment(models.Model):
     comment = models.TextField()
-    created_on = models.DateTimeField(default=DateTimeInput)
+    created_on = models.DateTimeField(auto_now_add=True)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ['created_on']
 
 class Photo(models.Model):
     url = models.CharField(max_length=200)
