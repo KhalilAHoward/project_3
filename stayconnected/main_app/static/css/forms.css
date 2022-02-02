@@ -1,18 +1,207 @@
 :root {
     --background: rgb(96, 130, 158);
     --navBackground: #B1A296;
-    --navText: #5D5C61;
+    --navText: #464549;
     --legendBackground: rgb(130, 120, 130);
     --formText: #557a95;
+    --font: 'Quicksand', sans-serif;
   }
   
-fieldset {
-    background-color: var(--navText);
+#form-fieldset, legend{
+  background-color: var(--legendBackground);
+  border-style: solid;
+  border-width: 8px;
+  border-color: var(--legendBackground);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 legend {
-  background-color: var(--navBackground);
-  padding: 5px 10px;
+  padding: 0px 5px;
   font-size: 40px;
   color: var(--navText);
+  font-weight: 500;
 }
+
+label {
+  color: var(--navText);
+  font-size: 20px;
+  font-weight: 300;
+}
+
+tr {
+  border-bottom: 1px solid var(--navText);
+}
+
+input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+  margin-bottom: 0px;
+  font-family: var(--font);
+  color: var(--navBackground);
+  font-size: 20px;
+  border-bottom: 1px solid var(--navBackground);
+}
+
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 2px solid var(--navText);
+  box-shadow: none;
+}
+
+.select-wrapper input.select-dropdown:focus {
+  border-bottom: 2px solid var(--navText);
+  box-shadow: none;
+}
+
+/*
+input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+  margin-bottom: 0px;
+  font-family: var(--font);
+  color: var(--navText);
+  font-size: 20px;
+  background-color: var(--navBackground);
+  border: 0px;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+  border: 0px;
+  box-shadow: none;
+}
+*/
+
+.datepicker-date-display {
+  background-color: var(--legendBackground);
+}
+
+.datepicker-date-display .year-text, .date-text {
+  color: var(--navText);
+}
+
+button.month-next, button.month-prev {
+  display: flex;
+}
+
+.month-prev svg, .month-next svg {
+  fill: var(--navText);
+  margin: auto 0;
+}
+
+button.month-prev:focus, button.month-next:focus {
+  background-color: var(--formText);
+  border: 0px solid var(--formText);
+  border-radius: 50%;
+
+  width: 36px;
+  height: 36px;
+}
+
+.datepicker-calendar-container {
+  background-color: var(--navBackground);
+}
+
+div.select-month input[type=text].dropdown-trigger, div.select-year input[type=text].dropdown-trigger {
+  color: var(--navText);
+  font-size: 16px;
+}
+
+ul.select-dropdown > li > span {
+  color: var(--navText);
+}
+
+ul.select-dropdown > li {
+  background-color: var(--formText);
+}
+
+
+
+.select-dropdown.dropdown-content li.selected, body.keyboard-focused .select-dropdown.dropdown-content li:focus {
+  background-color: var(--background);
+}
+
+.select-dropdown.dropdown-content li.selected > span {
+  font-weight: 600;
+  color: var(--navBackground)
+}
+
+.select-dropdown.dropdown-content li:hover {
+  background-color: var(--background);
+}
+
+div.selects-container > div.select-month > input.select-dropdown {
+  width: 80px;
+}
+
+table.datepicker-table > thead > tr > th > abbr {
+  color: var(--navText);
+}
+
+.datepicker-table td.is-today {
+  color: var(--formText);
+  font-weight: 700;
+}
+
+.datepicker-table td {
+  color: var(--navText);
+  font-family: var(--font);
+}
+
+.datepicker-day-button {
+  font-weight: inherit;
+  font-family: inherit;
+}
+
+.datepicker-table td.is-selected {
+  background-color: var(--formText);
+  font-weight: 700;
+  color: var(--navBackground);
+}
+
+.datepicker-day-button:focus, .btn-flat:focus {
+  background-color: rgba(68, 103, 130, 0.25);
+}
+
+.datepicker-cancel, .datepicker-done {
+  color: var(--navText);
+  border-radius: 5px;
+}
+
+.modal {
+  box-shadow: none;
+  border: 0px solid var(--background);
+  border-radius: 15px;;
+  background-color: rgba(0,0,0,0);
+}
+
+#form-fieldset > table > tbody > tr:nth-child(6) > td > div.select-wrapper > input.select-dropdown.dropdown-trigger {
+  display: none;
+}
+
+#form-fieldset > table > tbody > tr:nth-child(6) > td > div.select-wrapper > svg, .caret {
+  display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#form-fieldset > input.btn {
+  background-color: var(--formText);
+  color: var(--navBackground);
+  margin: 30px auto 0 auto;
+  box-shadow: none;
+  height: 50px;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+#form-fieldset > input.btn:focus {
+  background-color: rgba(68, 103, 130, 0.25);
+}
+
+textarea {
+  resize: none;
+}
+

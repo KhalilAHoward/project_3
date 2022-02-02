@@ -7,7 +7,7 @@
 {% block content %}
 
 <form action="" method="post">
-  <fieldset>
+  <fieldset id='form-fieldset'>
     <legend>
       {% if object %}
       Edit {{object.company_name}}
@@ -15,10 +15,10 @@
       New Job
       {% endif %}
     </legend>
-    
+
     {% csrf_token %}
     <table>
-      
+
       {{ form.as_table }}
     </table>
     <input type="submit" value="Submit!" class="btn">
@@ -26,7 +26,7 @@
 </form>
 
 <script>
- 
+
   const dateEl = document.querySelector('#id_date');
   M.Datepicker.init(dateEl, {
     format: 'yyyy-mm-dd',
