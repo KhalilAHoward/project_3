@@ -9,12 +9,13 @@
         <span class="card-title">{{ profile.user }}</span>
       </div>
     </div>
-    </div>
-    </div>
+  </div>
+</div>
+  
 <h1>My Projects</h1>
     <hr />
     {% for project in projects  %}
-    <a href={{ project.link }}>{{project.link}}</a>
+    <a href={{ project.link }} target ="_blank">{{project.link}}</a>
     <br />
       
     {% empty %}
