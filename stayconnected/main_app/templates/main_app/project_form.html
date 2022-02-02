@@ -1,28 +1,36 @@
 {% extends 'base.html' %}
-
+{% load static %}
+{% block extrahead %}
+<link rel='stylesheet' type='text/css' href="{% static 'css/forms.css' %}">
+{% endblock extrahead %}
 {% block content %}
-  {% if object %}
-    <h1>Edit <span class="teal-text">{{object.user.username}}</span></h1>
-  {% else %}
-    <h1>Add Project</h1>
-  {% endif %}
-  
-  <form action="" method="post">
-    
+
+
+<form action="" method="post">
+  <fieldset id='form-fieldset'>
+    <legend>
+      {% if object %}
+      Edit {{object.user.username}}
+      {% else %}
+      Add Project
+      {% endif %}
+    </legend>
     {% csrf_token %}
     <table>
-      
+
       {{ form.as_table }}
     </table>
     <input type="submit" value="Submit!" class="btn">
-  </form>
+  </fieldset>
 
-  <script>
-	
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('select');
-        var instances = M.FormSelect.init(elems);
-    });
+</form>
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+  });
 
 </script>
 
