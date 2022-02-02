@@ -15,10 +15,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
 BUCKET = 'sei-stay-connected'
 
-
-
-
-
 def home(request):
     return HttpResponseRedirect('/about/')
 
@@ -111,21 +107,14 @@ class ProjectDelete(LoginRequiredMixin, DeleteView):
     success_url = '/profile/'  
 
 def add_photo(request):
-    print(f'printing add_photo request {request}')
     photo_file = request.FILES.get('photo-file', None)
-    print(f'printing photo file {photo_file}')
     if photo_file:
         s3 = boto3.client('s3')
-        print(f'printing s3 {s3}')
         key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
-        print(f'printing key {key}')
         try:
             s3.upload_fileobj(photo_file, BUCKET, key)
             url = f"{S3_BASE_URL}{BUCKET}/{key}"
-            print(f'printing url {url}')
             photo = Photo(url=url)
-            print(f'printing photo class {Photo}')
-            print(f'printing photo {photo}')
             photo.save()
         except botocore.exceptions.ClientError as error:
             print(error, " <-this aws error")
@@ -141,17 +130,13 @@ def add_profile_photo(request, profile_id):
 
     if photo_file:
         s3 = boto3.client('s3')
-        print(s3, 'this is the photo file')
         key = uuid.uuid4().hex[:6] + \
             photo_file.name[photo_file.name.rfind('.'):]
-        print(key, 'this is the keyyyyyy')
 
         try:
             s3.upload_fileobj(photo_file, BUCKET, key)
             url = f"{S3_BASE_URL}{BUCKET}/{key}"
-            print(url, 'this is the url to the photo')
             ProfilePhoto.objects.create(url=url, profile_id=profile_id)
-            print('hey')
 
         except:
             print('An error occurred uploading file to s3, is your access key correct?')
