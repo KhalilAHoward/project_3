@@ -1,6 +1,6 @@
 # SEI Stay Connected
 
-#User Stories
+# User Stories
 1. AAU I want to be able to create projects posts of projects I've completed for others to see
 2. AAU I want to be able to create job posts for others to see
 3. AAU I want to be able to have a profile where I can see the links to my projects
