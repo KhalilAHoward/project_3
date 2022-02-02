@@ -73,3 +73,9 @@ function unfade(element) {
         op += op * 0.02;
     }, 10);
 }
+
+const inputs = document.querySelectorAll('input');
+
+inputs.forEach(function (a) {
+    a.setAttribute('autocomplete', 'off');
+});
