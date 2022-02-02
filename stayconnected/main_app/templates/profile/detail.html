@@ -14,7 +14,8 @@
 <h1>My Projects</h1>
     <hr />
     {% for project in projects  %}
-    <div>{{ project.link }}</div>
+    <a href={{ project.link }}>{{project.link}}</a>
+    <br />
       
     {% empty %}
       
