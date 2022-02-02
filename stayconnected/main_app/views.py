@@ -134,3 +134,5 @@ def add_photo(request):
 class PhotoList(ListView):
     model = Photo
     template = 'photo_list.html'
+
+
