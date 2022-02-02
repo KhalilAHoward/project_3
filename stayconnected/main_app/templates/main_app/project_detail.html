@@ -10,6 +10,7 @@
                 <span class="card-title">{{ project.name }}</span>
                 <a href={{ project.link }}>Link to My Project</a>
                 <p>Project Description: {{ project.description }} </p>
+                <p>Project Created By: {{ project.user }} </p>
             </div>
             {% if project.user.id == user.id %}
             <div class="card-action">
