@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Project, Job, Profile, Photo
+from .models import Project, Job, Profile, Photo, ProfilePhoto
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login
@@ -134,5 +134,27 @@ def add_photo(request):
 class PhotoList(ListView):
     model = Photo
     template = 'photo_list.html'
+
+def add_profile_photo(request, profile_id):
+    print(request, profile_id)
+    photo_file = request.FILES.get('photo-file', None)
+
+    if photo_file:
+        s3 = boto3.client('s3')
+        print(s3, 'this is the photo file')
+        key = uuid.uuid4().hex[:6] + \
+            photo_file.name[photo_file.name.rfind('.'):]
+        print(key, 'this is the keyyyyyy')
+
+        try:
+            s3.upload_fileobj(photo_file, BUCKET, key)
+            url = f"{S3_BASE_URL}{BUCKET}/{key}"
+            print(url, 'this is the url to the photo')
+            ProfilePhoto.objects.create(url=url, profile_id=profile_id)
+            print('hey')
+
+        except:
+            print('An error occurred uploading file to s3, is your access key correct?')
+    return redirect('index')
 
 

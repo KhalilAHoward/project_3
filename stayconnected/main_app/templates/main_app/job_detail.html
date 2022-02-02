@@ -10,7 +10,7 @@
             <div class="card-content">
                 <span class="card-title">{{ job.company_name }}</span>
                 <p>Title: {{ job.title }}</p>
-                <a href={{ job.link }}>{{ job.link }}</a>
+                <a href={{ job.link }} target ="_blank">Link to Company Site</a>
                 <p>Salary range: ${{ job.salary_min|intcomma }} to ${{ job.salary_max|intcomma }}</p>
                 <p>Date posted: {{ job.date }} </p>
             </div>
