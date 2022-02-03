@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+
 import environ
 environ.Env()
 environ.Env.read_env()
@@ -123,6 +124,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/profile/'
+
 
 LOGOUT_REDIRECT_URL = '/'
 

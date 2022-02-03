@@ -9,9 +9,7 @@
   
 #form-fieldset, legend{
   background-color: var(--legendBackground);
-  border-style: solid;
-  border-width: 8px;
-  border-color: var(--legendBackground);
+  border: 8px solid var(--legendBackground);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -51,24 +49,6 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
   border-bottom: 2px solid var(--navText);
   box-shadow: none;
 }
-
-/*
-input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
-  margin-bottom: 0px;
-  font-family: var(--font);
-  color: var(--navText);
-  font-size: 20px;
-  background-color: var(--navBackground);
-  border: 0px;
-  border-radius: 10px;
-  padding-left: 10px;
-}
-
-input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
-  border: 0px;
-  box-shadow: none;
-}
-*/
 
 .datepicker-date-display {
   background-color: var(--legendBackground);
@@ -112,8 +92,6 @@ ul.select-dropdown > li > span {
 ul.select-dropdown > li {
   background-color: var(--formText);
 }
-
-
 
 .select-dropdown.dropdown-content li.selected, body.keyboard-focused .select-dropdown.dropdown-content li:focus {
   background-color: var(--background);
@@ -195,6 +173,7 @@ input::-webkit-inner-spin-button {
   height: 50px;
   border-radius: 5px;
   font-size: 20px;
+  font-family: var(--fonts);
 }
 
 #form-fieldset > input.btn:focus {

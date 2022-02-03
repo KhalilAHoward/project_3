@@ -19,7 +19,6 @@ const noUser = document.getElementById('no-user-profile-management');
 if (!noUser) {
     let jobLinks = document.querySelectorAll('.job-link');
     let projectLinks = document.querySelectorAll('.project-link');
-    let photoLinks = document.querySelectorAll('.photo-link');
 
     jobDiv.addEventListener('click', function (event) {
         jobDiv.style.display = 'none';

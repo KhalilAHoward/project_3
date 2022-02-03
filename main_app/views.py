@@ -122,6 +122,7 @@ def add_photo(request):
         s3 = boto3.client('s3')
 
         key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+
         key = uuid.uuid4().hex[:6] + \
             photo_file.name[photo_file.name.rfind('.'):]
 
@@ -152,10 +153,6 @@ def add_profile_photo(request, profile_id):
             url = f"{S3_BASE_URL}{BUCKET}/{key}"
             ProfilePhoto.objects.create(url=url, profile_id=profile_id)
 
-
         except:
             print('An error occurred uploading file to s3, is your access key correct?')
     return redirect('index')
-
-
-

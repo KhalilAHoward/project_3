@@ -1,63 +1,74 @@
 {% extends 'base.html'%}
+
+{% load static %}
+{% block extrahead %}
+<link rel='stylesheet' type='text/css' href="{% static 'css/detail.css' %}">
+{% endblock extrahead %}
+
 {% block content %}
 
 <h1>Project Details</h1>
 
-<div class="row">
-    <div class="col s6 col-offset-3">
-        <div class="card">
-            <div class="card-content">
-                <span class="card-title">{{ project.name }}</span>
 
-                <a href={{ project.link }} target ="_blank">Link to My Project</a>
+<div class="card">
+  <div class="card-content">
 
-                <p>Project Description: {{ project.description }} </p>
-                <p>Project Created By: {{ project.user }} </p>
-            </div>
-            {% if project.user.id == user.id %}
-            <div class="card-action">
-                
-                <a href="{% url 'project_update' project.id %}">Edit</a> 
-                <a href="{% url 'project_delete' project.id %}">Delete</a> 
-            </div>
-            {% endif %}
-        </div>
+    <div class="card-left">
+      <span class="card-title">{{ project.name }}</span>
+      <br>
+
+      <a href={{ project.link }} target="_blank" class="card-link card-animation">Link to My Project</a>
+      <br>
+      <p id="description">{{ project.description }} </p>
     </div>
-</div>
+    <div class="user-date">{{ project.user }} </div>
+  </div>
+  {% if project.user.id == user.id %}
+  <div class="card-action" id="card-bottom">
 
+    <a id='edit' class='underline-animation' href="{% url 'project_update' project.id %}">Edit</a>
+    <a id='delete' class='underline-animation' href="{% url 'project_delete' project.id %}">Delete</a>
+  </div>
+  {% endif %}
+</div>
+<br>
 <div class="col s6">
-    <form method="post" action="{% url 'add_comment' project.id %}">
-      {% csrf_token %} 
-	  {{ comment_form.as_p }}
-      <input type="submit" class="btn" value="Add comment" />
+  <button class='collapsible card-animation-alt'>Add Comment</button>
+  <div class='content'>
+    <form method="post" action="{% url 'add_comment' project.id %}" id='new-comment-form'>
+      <fieldset id="new-comment-fieldset">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        <input type="submit" class="btn" value="Add comment" />
+      </fieldset>
     </form>
-
-<table class="striped">
-    <thead>
-      <tr>
-        <th>Comment</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for comment in project.comment_set.all %}
-      <tr>
-        <td>{{comment.created_on}}</td>
-        <td>{{comment.comment}}</td>
-        <td>{{comment.author}}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+  </div>
+  <div class="existing-comments-wrapper">
+    <table class="striped">
+      <thead>
+        <tr>
+          <th>Comments</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for comment in project.comment_set.all %}
+        <tr>
+          <td>{{comment.created_on}}</td>
+          <td>{{comment.comment}}</td>
+          <td>{{comment.author}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 </div>
-</div>
-
 <script>
-	
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('select');
-        var instances = M.FormSelect.init(elems);
-    });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+  });
 
 </script>
-
+<script src="{% static 'scripts/detail.js' %}"></script>
 {% endblock %}

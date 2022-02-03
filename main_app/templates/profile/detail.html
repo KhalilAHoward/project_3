@@ -13,8 +13,7 @@
   </div>
 
   <div class="col s6">
-
-    
+  
     {% if profile_pic %}
     <img class="responsive-img card-panel" src="{{profile_pic.url}}">
     {% else %}
@@ -25,13 +24,14 @@
         {% csrf_token %}
         <input type="file" name="photo-file">
         <br><br>
-
+      
         {% if profile_pic %}
         <input type="submit" class="btn" value="Edit Photo">
         {% else %}
         <input type="submit" class="btn" value="Upload Photo">
         {% endif %}
     </form>
+
   </div>
 </div>
 
