@@ -13,23 +13,25 @@
   </div>
 
   <div class="col s6">
+
     
     {% if profile_pic %}
     <img class="responsive-img card-panel" src="{{profile_pic.url}}">
     {% else %}
     <div class="card-panel teal-text center-align">No Photos Uploaded</div>
     {% endif %}
+
     <form action="{% url 'add_profile_photo' profile.user.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
         {% csrf_token %}
         <input type="file" name="photo-file">
         <br><br>
+
         {% if profile_pic %}
         <input type="submit" class="btn" value="Edit Photo">
         {% else %}
         <input type="submit" class="btn" value="Upload Photo">
         {% endif %}
     </form>
-    
   </div>
 </div>
 

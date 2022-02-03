@@ -52,6 +52,7 @@ def profile_index(request):
     return render(request, 'profile/detail.html', {'profile': profile, 'projects': projects, 'profile_pic':profile_pic})
 
 
+
 def add_comment(request, project_id):
 
     form = CommentForm(request.POST)
@@ -150,6 +151,7 @@ def add_profile_photo(request, profile_id):
             s3.upload_fileobj(photo_file, BUCKET, key)
             url = f"{S3_BASE_URL}{BUCKET}/{key}"
             ProfilePhoto.objects.create(url=url, profile_id=profile_id)
+
 
         except:
             print('An error occurred uploading file to s3, is your access key correct?')
