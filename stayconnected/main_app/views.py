@@ -11,9 +11,11 @@ import botocore
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+import os
 
 S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
 BUCKET = 'sei-stay-connected'
+my_key = os.environ['AWS_SECRET_ACCESS_KEY']
 
 def home(request):
     return HttpResponseRedirect('/about/')
@@ -145,10 +147,11 @@ def add_profile_photo(request, profile_id):
         try:
             s3.upload_fileobj(photo_file, BUCKET, key)
             url = f"{S3_BASE_URL}{BUCKET}/{key}"
-            ProfilePhoto.objects.create(url=url, profile_id=profile_id)
+            ProfilePhoto.objects.update_or_create(url=url, profile_id=profile_id)
 
         except:
             print('An error occurred uploading file to s3, is your access key correct?')
     return redirect('index')
+
 
 
