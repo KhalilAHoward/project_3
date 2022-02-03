@@ -1,0 +1,76 @@
+:root {
+    --background: rgb(96, 130, 158);
+    --navBackground: #B1A296;
+    --navText: #464549;
+    --legendBackground: rgb(130, 120, 130);
+    --formText: #557a95;
+    --font: 'Quicksand', sans-serif;
+}
+
+h1 {
+    color: var(--navText);
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: none;
+    background-color: var(--legendBackground);
+}
+
+.card-animation { 
+    background-color: var(--legendBackground);
+    color: var(--navText);
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+    box-shadow: none;
+}
+
+.card-animation:before {
+    content: '';
+    position: absolute;
+    background-color: var(--navBackground);
+    bottom: 0;
+    left: 0;
+    right: 100%;
+    top: 0;
+    z-index: -1;
+    transition: right .8s ease-in-out;
+    border-radius: 10px;
+}
+
+#project-name, #project-name:before, #project-link, #project-link:before {
+    border-radius: 5px;
+}
+
+#project-name, #project-link {
+    padding: 0 5px;
+}
+
+#project-link {
+    transition: color .9s ease-in-out;
+}
+
+#project-link:hover {
+    color: var(--formText);
+}
+
+.card-animation:hover:before {
+    right: 0;
+}
+
+.card-content{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.card-right {
+    align-self: flex-start;
+    margin-left: auto;
+    color: var(--navBackground);
+    transition: color .8s ease-in-out;
+}
+
+.card-animation:hover .card-right {
+    color: var(--formText);
+}

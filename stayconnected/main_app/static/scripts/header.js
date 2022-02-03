@@ -37,14 +37,6 @@ if (!noUser) {
         projectHolder.classList.add('holder-clicked');
         projectHolder.classList.remove('project-holder');
     });
-    photoDiv.addEventListener('click', function (event) {
-        photoDiv.style.display = 'none';
-        photoLinks.forEach(function (photo) {
-            unfade(photo);
-        });
-        photoHolder.classList.add('holder-clicked');
-        photoHolder.classList.remove('photo-holder');
-    });
 }
 
 const header = document.getElementById('header');
