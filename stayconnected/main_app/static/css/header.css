@@ -92,7 +92,7 @@ header {
   gap: 10px;
 }
 
-.links-holder div {
+.links-holder div, #photo-view, #job-view-guest, #project-view-guest {
   font-size: clamp(20px, calc(3vw), 40px);
 }
 

@@ -1,14 +1,23 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block extrahead %}
+<link rel='stylesheet' type='text/css' href="{% static 'css/list.css' %}">
+{% endblock extrahead %}
 {% block content %}
 
-<h1>Job List</h1>
+<h1>All Jobs</h1>
 
 {% for job in job_list %}
 <a href="{% url 'job_detail' job.id %}">
-    <div class="card">
+    <div class="card card-animation">
         <div class="card-content">
-            <span class="card-title">{{ job.company_name }}</span>
-            <p>Title: {{ job.title }}</p>
+            <div class="card-left">
+                <span class="card-title">{{ job.company_name }}</span>
+                <p>Title: {{ job.title }}</p>
+            </div>
+            <div class="card-right">
+                {{ job.date }}
+            </div>
         </div>
     </div>
 </a>

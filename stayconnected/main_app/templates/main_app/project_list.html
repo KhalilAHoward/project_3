@@ -1,14 +1,18 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block extrahead %}
+<link rel='stylesheet' type='text/css' href="{% static 'css/list.css' %}">
+{% endblock extrahead %}
 {% block content %}
 
-<h1>Project List</h1>
+<h1>All Projects</h1>
 
 {% for project in project_list %}
 <a href="{% url 'project_detail' project.id %}">
     <div class="card">
         <div class="card-content">
-            <span class="card-title">{{ project.name }}</span>
-            <a href="{$ project.link $}">Project Link</a>
+            <span class="card-title card-animation" id='project-name'>{{ project.name }}</span>
+            <a class="card-right card-animation" href="{$ project.link $}" id='project-link'>Project Link</a>
         </div>
     </div>
 </a>
