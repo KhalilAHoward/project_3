@@ -117,11 +117,8 @@ def add_photo(request):
         s3 = boto3.client('s3')
 
         key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
-
-        print(f'printing s3 {s3}')
         key = uuid.uuid4().hex[:6] + \
             photo_file.name[photo_file.name.rfind('.'):]
-        print(f'printing key {key}')
 
         try:
             s3.upload_fileobj(photo_file, BUCKET, key)
@@ -138,7 +135,6 @@ class PhotoList(ListView):
     template = 'photo_list.html'
 
 def add_profile_photo(request, profile_id):
-    print(request, profile_id)
     photo_file = request.FILES.get('photo-file', None)
 
     if photo_file:
