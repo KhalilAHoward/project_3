@@ -48,6 +48,7 @@ def profile_index(request):
     profile = Profile.objects.get(user=request.user)
     projects = Project.objects.filter(user=request.user)
     profile_pic = profile.profilephoto_set.last()
+    print(profile_pic)
     return render(request, 'profile/detail.html', {'profile': profile, 'projects': projects, 'profile_pic':profile_pic})
 
 
@@ -148,7 +149,7 @@ def add_profile_photo(request, profile_id):
         try:
             s3.upload_fileobj(photo_file, BUCKET, key)
             url = f"{S3_BASE_URL}{BUCKET}/{key}"
-            ProfilePhoto.objects.update_or_create(url=url, profile_id=profile_id)
+            ProfilePhoto.objects.create(url=url, profile_id=profile_id)
 
         except:
             print('An error occurred uploading file to s3, is your access key correct?')

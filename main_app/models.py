@@ -77,9 +77,6 @@ class Photo(models.Model):
 class ProfilePhoto(models.Model):
     url = models.CharField(max_length=200, blank=True, null=True)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-
-    class Meta:
-        ordering = ['-url']
     
 
     def __str__(self):
