@@ -212,7 +212,8 @@ border-radius: 5px;
 }
 
 .active, .collapsible:hover {
-    background-color: #555;
+    background-color: var(--navText);
+
 }
 
 .collapsible:after {
@@ -232,7 +233,13 @@ border-radius: 5px;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
-    background-color: #f1f1f1;
+    background-color: var(--navBackground);
+    border-radius: 10px;
+}
+
+.collapsible:focus {
+    background-color: var(--navText);
+    color: var(--formText);
 }
 
 .card-animation-alt { 
@@ -259,3 +266,21 @@ border-radius: 5px;
 .card-animation-alt:hover:before {
     right: 0;
 }
+
+.photo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo-card, .photo-content {
+    margin: 0 auto;
+}
+
+img.responsive-img {
+    padding: 0;
+    border: 20px solid var(--legendBackground);
+    border-radius: 10px;
+    box-shadow: none;
+}
+

@@ -61,8 +61,8 @@ function unfade(element) {
         }
         element.style.opacity = op;
         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op += op * 0.02;
-    }, 10);
+        op += op * 0.04;
+    }, 5);
 }
 
 const inputs = document.querySelectorAll('input');

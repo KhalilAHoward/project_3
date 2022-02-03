@@ -1,32 +1,38 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html'%}
 
+{% load static %}
+{% block extrahead %}
+<link rel='stylesheet' type='text/css' href="{% static 'css/detail.css' %}">
+{% endblock extrahead %}
+
+{% block content %}
 <h1>Meme List</h1>
 
+<form action="{% url 'add_photo' %}" enctype="multipart/form-data" method="POST" class="card-panel">
+    {% csrf_token %}
+    <input type="file" name="photo-file">
+    <br><br>
+    <input type="submit" class="btn" value="Upload Photo">
+</form>
+<div class="photo-wrapper">
+{% for p in object_list %}
 
-<div class="row">
-    <div class="col s12">
-        <div class="card">
-            <div class="card-content">
 
-                <form action="{% url 'add_photo' %}" enctype="multipart/form-data" method="POST" class="card-panel">
-                    {% csrf_token %}
-                    <input type="file" name="photo-file">
-                    <br><br>
-                    <input type="submit" class="btn" value="Upload Photo">
-                </form>
+    <div class="card-content photo-content">
 
-                {% for p in object_list %}
-                <img class="responsive-img card-panel" src="{{p.url}}">
-                {% empty %}
-                <div class="card-panel teal-text center-align">No Memes Uploaded</div>
-                {% endfor %}
 
-            </div>
-        </div>
+
+        <img class="responsive-img card-panel" src="{{p.url}}">
+        
+
+
+
     </div>
-</div>
 
+{% empty %}
+<div class="card-panel teal-text center-align">No Memes Uploaded</div>
+{% endfor %}
+</div>
 
 
 {% endblock %}

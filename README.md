@@ -51,3 +51,15 @@ https://seistayconnected.herokuapp.com/
 1. make friend requests
 2. be able to view other peoples profiles
 
+# View of Final Product
+<img width="1440" alt="Screen Shot 2022-02-03 at 1 44 33 PM" src="https://user-images.githubusercontent.com/94722723/152434385-b982da37-d7ff-45f1-a467-043e893fca03.png">
+<img width="1440" alt="Screen Shot 2022-02-03 at 1 44 37 PM" src="https://user-images.githubusercontent.com/94722723/152434455-44ed346d-040e-4ca2-a755-96c801483096.png">
+<img width="1440" alt="Screen Shot 2022-02-03 at 1 44 54 PM" src="https://user-images.githubusercontent.com/94722723/152434470-2d4ac644-5a48-4ef7-93e3-5ba550684527.png">
+<img width="1440" alt="Screen Shot 2022-02-03 at 1 45 00 PM" src="https://user-images.githubusercontent.com/94722723/152434495-802f18be-4a06-44a2-a4b9-2e2b3c5eccf6.png">
+<img width="1440" alt="Screen Shot 2022-02-03 at 1 45 04 PM" src="https://user-images.githubusercontent.com/94722723/152434508-b79ad1fc-303d-4319-ada8-22fbc09ce128.png">
+<img width="1440" alt="Screen Shot 2022-02-03 at 1 45 10 PM" src="https://user-images.githubusercontent.com/94722723/152434539-892ae5f0-39c1-46d6-b12d-00b2899db2b3.png">
+<img width="1440" alt="Screen Shot 2022-02-03 at 1 45 16 PM" src="https://user-images.githubusercontent.com/94722723/152434552-d0a5825f-de10-4c89-95d7-281a28b77771.png">
+
+
+
+
