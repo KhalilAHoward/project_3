@@ -44,3 +44,10 @@ https://docs.google.com/presentation/d/1uE8zJHnmG6zgJMghOtwrrnYhig7j8HPKicZLrjfs
 ![wireframes5](https://user-images.githubusercontent.com/94722723/152232265-ee7f09d5-2bad-48c9-abaa-f54de9a7c37b.png)
 ![wireframes6](https://user-images.githubusercontent.com/94722723/152232278-37563e68-8bf7-4729-8430-741f7e00cf40.png)
 
+# Link to Deployed APP
+https://seistayconnected.herokuapp.com/
+
+# Ice Box Features
+1. make friend requests
+2. be able to view other peoples profiles
+

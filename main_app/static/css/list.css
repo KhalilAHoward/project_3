@@ -43,6 +43,7 @@ h1 {
     border-radius: 5px;
 }
 
+
 #project-link {
     transition: color .9s ease-in-out;
 }
@@ -59,6 +60,7 @@ h1 {
     display: flex;
     justify-content: flex-start;
     border-radius: 10px;
+
 }
 
 .card-right {

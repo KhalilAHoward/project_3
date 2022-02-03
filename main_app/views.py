@@ -11,9 +11,11 @@ import botocore
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+import os
 
 S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
 BUCKET = 'sei-stay-connected'
+my_key = os.environ['AWS_SECRET_ACCESS_KEY']
 
 def home(request):
     return HttpResponseRedirect('/about/')
@@ -45,7 +47,10 @@ def signup(request):
 def profile_index(request):
     profile = Profile.objects.get(user=request.user)
     projects = Project.objects.filter(user=request.user)
-    return render(request, 'profile/detail.html', {'profile': profile, 'projects': projects})
+    profile_pic = profile.profilephoto_set.last()
+    print(profile_pic)
+    return render(request, 'profile/detail.html', {'profile': profile, 'projects': projects, 'profile_pic':profile_pic})
+
 
 
 def add_comment(request, project_id):
@@ -118,10 +123,8 @@ def add_photo(request):
 
         key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
 
-        print(f'printing s3 {s3}')
         key = uuid.uuid4().hex[:6] + \
             photo_file.name[photo_file.name.rfind('.'):]
-        print(f'printing key {key}')
 
         try:
             s3.upload_fileobj(photo_file, BUCKET, key)
@@ -138,7 +141,6 @@ class PhotoList(ListView):
     template = 'photo_list.html'
 
 def add_profile_photo(request, profile_id):
-    print(request, profile_id)
     photo_file = request.FILES.get('photo-file', None)
 
     if photo_file:
@@ -154,5 +156,3 @@ def add_profile_photo(request, profile_id):
         except:
             print('An error occurred uploading file to s3, is your access key correct?')
     return redirect('index')
-
-
