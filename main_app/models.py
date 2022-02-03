@@ -75,7 +75,8 @@ class Photo(models.Model):
         return f"Photo for: @{self.url}"
 
 class ProfilePhoto(models.Model):
-    url = models.CharField(max_length=200)
+
+    url = models.CharField(max_length=200, blank=True, null=True)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     
 
