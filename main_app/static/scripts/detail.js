@@ -9,7 +9,13 @@ for (i = 0; i < coll.length; i++) {
         if (content.style.maxHeight) {
             content.style.maxHeight = null;
         } else {
-            content.style.maxHeight = content.scrollHeight + "px";
+            content.style.maxHeight = content.scrollHeight *2 + "px";
         }
     });
+}
+
+let selectList = document.getElementsByClassName('select-dropdown');
+
+for (let j = 0; j < selectList.length; j++) {
+    j.setAttribute('disabled', true);
 }
