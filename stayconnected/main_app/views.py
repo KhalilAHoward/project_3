@@ -47,8 +47,8 @@ def signup(request):
 def profile_index(request):
     profile = Profile.objects.get(user=request.user)
     projects = Project.objects.filter(user=request.user)
-    profile_pic = profile.profilephoto_set.all()
-    return render(request, 'profile/detail.html', {'profile': profile, 'projects': projects, 'profile_pic':profile_pic[0]})
+    profile_pic = profile.profilephoto_set.last()
+    return render(request, 'profile/detail.html', {'profile': profile, 'projects': projects, 'profile_pic':profile_pic})
 
 
 def add_comment(request, project_id):
