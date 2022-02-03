@@ -2,6 +2,8 @@
   --background: rgb(96, 130, 158);
   --navBackground: #B1A296;
   --navText: #464549;
+  --legendBackground: rgb(130, 120, 130);
+  --formText: #557a95;
   --font: 'Quicksand', sans-serif;
 }
 
@@ -27,6 +29,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1;
 }
 
 .underline-animation {

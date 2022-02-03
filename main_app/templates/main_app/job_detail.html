@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block extrahead %}
+<link rel='stylesheet' type='text/css' href="{% static 'css/detail.css' %}">
+{% endblock extrahead %}
+{% block content %}
+{% load humanize %}
+
+<h1>Job Details</h1>
+
+<div class="card">
+    <div class="card-content">
+        <div class="card-left">
+            <span class="card-title">{{ job.company_name }}</span>
+            <span class="card-undertitle">{{ job.title }}</span>
+            <br>
+            <br>
+            <div>Salary range: ${{ job.salary_min|intcomma }} - ${{ job.salary_max|intcomma }}</div>
+            <a href={{ job.link }} target="_blank" class="card-link card-animation">Link to Job Posting</a>
+        </div>
+        <div class="user-date">{{ job.date }} </div>
+    </div>
+    <div class="card-action" id="card-bottom">
+        <a id='edit' class='underline-animation' href="{% url 'job_update' job.id %}">Edit</a>
+        <a id='delete' class='underline-animation' href="{% url 'job_delete' job.id %}">Delete</a>
+    </div>
+</div>
+{% endblock %}

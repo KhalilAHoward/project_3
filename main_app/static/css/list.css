@@ -43,10 +43,6 @@ h1 {
     border-radius: 5px;
 }
 
-#project-name, #project-link {
-    padding: 0 5px;
-}
-
 #project-link {
     transition: color .9s ease-in-out;
 }
@@ -62,6 +58,7 @@ h1 {
 .card-content{
     display: flex;
     justify-content: flex-start;
+    border-radius: 10px;
 }
 
 .card-right {
@@ -74,3 +71,4 @@ h1 {
 .card-animation:hover .card-right {
     color: var(--formText);
 }
+
